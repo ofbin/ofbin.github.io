@@ -207,25 +207,27 @@
     
     
     <entry>
-      <title>numpy随笔</title>
-      <link href="/2022/08/14/numpy/"/>
-      <url>/2022/08/14/numpy/</url>
+      <title>nano配置cuda</title>
+      <link href="/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/"/>
+      <url>/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/</url>
       
-        <content type="html"><![CDATA[<h1 id="numpy-Numerical-Python"><a href="#numpy-Numerical-Python" class="headerlink" title="numpy(Numerical Python)"></a>numpy(Numerical Python)</h1><ul><li>一个开源的Python科学计算库</li><li>使用Numpy可以方便的使用数组、和矩阵进行计算</li><li>包含线性代数、傅里叶变换、随机数生成等大量函数<h2 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h2></li><li>代码简洁 ：直接以数组、矩阵为粒度计算并且支持大量的数学函数</li><li>性能更高效：大部分代码由C语言实现，数组存储效率和输入输出计算性能要比使用Python中的List或者嵌套List要好得多<blockquote><p>Numpy 是Python各种数据科学类库的基础库</p><ul><li>比如SciPy、Scikit-Lenarn、Tensorflow、PaddlePaddle等</li><li></li></ul></blockquote><h6 id="魔法命令"><a href="#魔法命令" class="headerlink" title="魔法命令"></a>魔法命令</h6><code>%timeit //显示函数运行时间</code><h4 id="python中-as-取别名"><a href="#python中-as-取别名" class="headerlink" title="python中 as 取别名"></a>python中 as 取别名</h4>numpy中<br>np.array(range(10))=np.arange(10)<h4 id="当前的数类型"><a href="#当前的数类型" class="headerlink" title="当前的数类型"></a>当前的数类型</h4>a.dtype()<h4 id="调整数据类型"><a href="#调整数据类型" class="headerlink" title="调整数据类型"></a>调整数据类型</h4>a.astype()<h4 id="查看数组的形状"><a href="#查看数组的形状" class="headerlink" title="查看数组的形状"></a>查看数组的形状</h4>a.shape()<h4 id="修改数组的形状"><a href="#修改数组的形状" class="headerlink" title="修改数组的形状"></a>修改数组的形状</h4>a.reshape()<h4 id="展开数组"><a href="#展开数组" class="headerlink" title="展开数组"></a>展开数组</h4>a.flatten()</li></ul><h2 id="nan"><a href="#nan" class="headerlink" title="nan"></a>nan</h2><p>不是一个数字</p><h2 id="inf"><a href="#inf" class="headerlink" title="inf"></a>inf</h2><p>无穷  </p>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-10.2/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br><span class="line">export CUDA_HOME=$CUDA_HOME:/usr/local/cuda-10.2</span><br><span class="line">export ROS_PACKAGE_PATH=$&#123;ROS_PACKAGE_PATH&#125;:~/ros_car/</span><br><span class="line">export CUDA_HOME=/usr/local/cuda</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
           <category> 随笔 </category>
           
+          <category> Linux </category>
+          
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
+            <tag> bash </tag>
             
-            <tag> numpy </tag>
+            <tag> cuda </tag>
             
         </tags>
       
@@ -259,27 +261,25 @@
     
     
     <entry>
-      <title>nano配置cuda</title>
-      <link href="/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/"/>
-      <url>/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/</url>
+      <title>numpy随笔</title>
+      <link href="/2022/08/14/numpy/"/>
+      <url>/2022/08/14/numpy/</url>
       
-        <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-10.2/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br><span class="line">export CUDA_HOME=$CUDA_HOME:/usr/local/cuda-10.2</span><br><span class="line">export ROS_PACKAGE_PATH=$&#123;ROS_PACKAGE_PATH&#125;:~/ros_car/</span><br><span class="line">export CUDA_HOME=/usr/local/cuda</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="numpy-Numerical-Python"><a href="#numpy-Numerical-Python" class="headerlink" title="numpy(Numerical Python)"></a>numpy(Numerical Python)</h1><ul><li>一个开源的Python科学计算库</li><li>使用Numpy可以方便的使用数组、和矩阵进行计算</li><li>包含线性代数、傅里叶变换、随机数生成等大量函数<h2 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h2></li><li>代码简洁 ：直接以数组、矩阵为粒度计算并且支持大量的数学函数</li><li>性能更高效：大部分代码由C语言实现，数组存储效率和输入输出计算性能要比使用Python中的List或者嵌套List要好得多<blockquote><p>Numpy 是Python各种数据科学类库的基础库</p><ul><li>比如SciPy、Scikit-Lenarn、Tensorflow、PaddlePaddle等</li><li></li></ul></blockquote><h6 id="魔法命令"><a href="#魔法命令" class="headerlink" title="魔法命令"></a>魔法命令</h6><code>%timeit //显示函数运行时间</code><h4 id="python中-as-取别名"><a href="#python中-as-取别名" class="headerlink" title="python中 as 取别名"></a>python中 as 取别名</h4>numpy中<br>np.array(range(10))=np.arange(10)<h4 id="当前的数类型"><a href="#当前的数类型" class="headerlink" title="当前的数类型"></a>当前的数类型</h4>a.dtype()<h4 id="调整数据类型"><a href="#调整数据类型" class="headerlink" title="调整数据类型"></a>调整数据类型</h4>a.astype()<h4 id="查看数组的形状"><a href="#查看数组的形状" class="headerlink" title="查看数组的形状"></a>查看数组的形状</h4>a.shape()<h4 id="修改数组的形状"><a href="#修改数组的形状" class="headerlink" title="修改数组的形状"></a>修改数组的形状</h4>a.reshape()<h4 id="展开数组"><a href="#展开数组" class="headerlink" title="展开数组"></a>展开数组</h4>a.flatten()</li></ul><h2 id="nan"><a href="#nan" class="headerlink" title="nan"></a>nan</h2><p>不是一个数字</p><h2 id="inf"><a href="#inf" class="headerlink" title="inf"></a>inf</h2><p>无穷  </p>]]></content>
       
       
       <categories>
           
           <category> 随笔 </category>
           
-          <category> Linux </category>
-          
       </categories>
       
       
         <tags>
             
-            <tag> bash </tag>
+            <tag> python </tag>
             
-            <tag> cuda </tag>
+            <tag> numpy </tag>
             
         </tags>
       
