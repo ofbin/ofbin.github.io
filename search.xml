@@ -180,33 +180,6 @@
     
     
     <entry>
-      <title>nano使用串口播报</title>
-      <link href="/2022/08/14/nano%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E6%92%AD%E6%8A%A5/"/>
-      <url>/2022/08/14/nano%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E6%92%AD%E6%8A%A5/</url>
-      
-        <content type="html"><![CDATA[<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>Nano端：</p><h3 id="要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库"><a href="#要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库" class="headerlink" title="要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库"></a>要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-serial</span><br></pre></td></tr></table></figure><h3 id="与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）"><a href="#与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）" class="headerlink" title="与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）"></a>与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/JetsonHacksNano/UARTDemo</span><br></pre></td></tr></table></figure><h3 id="打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）"><a href="#打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）" class="headerlink" title="打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）"></a>打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> 777 /dev/ttyTHS1</span><br></pre></td></tr></table></figure><h3 id="进入下载好的UARTDemo文件夹，终端运行程序"><a href="#进入下载好的UARTDemo文件夹，终端运行程序" class="headerlink" title="进入下载好的UARTDemo文件夹，终端运行程序"></a>进入下载好的UARTDemo文件夹，终端运行程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> UARTDemo</span><br><span class="line">sudo python3 uart_example.py</span><br></pre></td></tr></table></figure><h2 id="硬件接线-对应"><a href="#硬件接线-对应" class="headerlink" title="硬件接线(对应)"></a>硬件接线(对应)</h2><table><thead><tr><th>Nano</th><th>播报模块</th></tr></thead><tbody><tr><td>引脚8(TXD)</td><td>PB6(RXD)</td></tr><tr><td>引脚10(RXD)</td><td>PB5(TXD)</td></tr><tr><td>引脚6(GND)</td><td>GND</td></tr><tr><td>引脚2(5V)</td><td>5V</td></tr></tbody></table>]]></content>
-      
-      
-      <categories>
-          
-          <category> 随笔 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> uart </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>nano配置cuda</title>
       <link href="/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/"/>
       <url>/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/</url>
@@ -228,6 +201,33 @@
             <tag> bash </tag>
             
             <tag> cuda </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nano使用串口播报</title>
+      <link href="/2022/08/14/nano%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E6%92%AD%E6%8A%A5/"/>
+      <url>/2022/08/14/nano%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E6%92%AD%E6%8A%A5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>Nano端：</p><h3 id="要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库"><a href="#要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库" class="headerlink" title="要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库"></a>要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-serial</span><br></pre></td></tr></table></figure><h3 id="与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）"><a href="#与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）" class="headerlink" title="与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）"></a>与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/JetsonHacksNano/UARTDemo</span><br></pre></td></tr></table></figure><h3 id="打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）"><a href="#打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）" class="headerlink" title="打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）"></a>打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> 777 /dev/ttyTHS1</span><br></pre></td></tr></table></figure><h3 id="进入下载好的UARTDemo文件夹，终端运行程序"><a href="#进入下载好的UARTDemo文件夹，终端运行程序" class="headerlink" title="进入下载好的UARTDemo文件夹，终端运行程序"></a>进入下载好的UARTDemo文件夹，终端运行程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> UARTDemo</span><br><span class="line">sudo python3 uart_example.py</span><br></pre></td></tr></table></figure><h2 id="硬件接线-对应"><a href="#硬件接线-对应" class="headerlink" title="硬件接线(对应)"></a>硬件接线(对应)</h2><table><thead><tr><th>Nano</th><th>播报模块</th></tr></thead><tbody><tr><td>引脚8(TXD)</td><td>PB6(RXD)</td></tr><tr><td>引脚10(RXD)</td><td>PB5(TXD)</td></tr><tr><td>引脚6(GND)</td><td>GND</td></tr><tr><td>引脚2(5V)</td><td>5V</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> uart </tag>
             
         </tags>
       
