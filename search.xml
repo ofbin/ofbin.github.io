@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>vue杂项</title>
+      <link href="/2023/03/12/vue/"/>
+      <url>/2023/03/12/vue/</url>
+      
+        <content type="html"><![CDATA[<h2 id="axios与Vue整合"><a href="#axios与Vue整合" class="headerlink" title="axios与Vue整合"></a>axios与Vue整合</h2><p>在实际项目开发中，几乎每个组件中都会用到 axios 发起数据请求。此时会遇<br>到如下两个问题:<br>每个组件中都需要导入axios<br>每次发请求都需要填写完整的请求路径可以通过全局配置的方式解决上述问题:</p><p>配置请求根路径</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.baseURL = &#x27;http://api.com &#x27;</span><br></pre></td></tr></table></figure><p>//将axios作为全局的自定义属性，每个组件可以在内部直接访问(vue3)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.config.g1oba1Properties.$http = axios</span><br></pre></td></tr></table></figure><p>将axios作为全局的自定义属性，每个组件可以在内部直接访问(vue2)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue.prototype.$http = axios</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络配置 </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>表单</title>
       <link href="/2023/03/07/%E8%A1%A8%E5%8D%95/"/>
       <url>/2023/03/07/%E8%A1%A8%E5%8D%95/</url>
@@ -121,7 +148,7 @@
       <link href="/2023/01/24/Ubuntu22.04%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip/"/>
       <url>/2023/01/24/Ubuntu22.04%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip/</url>
       
-        <content type="html"><![CDATA[<h2 id="查看网卡"><a href="#查看网卡" class="headerlink" title="查看网卡"></a>查看网卡</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">docker0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255</span><br><span class="line">        ether 02:42:69:f0:8b:f5  txqueuelen 0  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">ens160: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.0.27  netmask 255.255.255.0  broadcast 192.168.0.255</span><br><span class="line">        inet6 fe80::20c:29ff:fea0:c420  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:a0:c4:20  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 10021  bytes 919655 (919.6 KB)</span><br><span class="line">        RX errors 0  dropped 5  overruns 0  frame 0</span><br><span class="line">        TX packets 7629  bytes 9885571 (9.8 MB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 427  bytes 502877 (502.8 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 427  bytes 502877 (502.8 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure><h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/netplan/</span><br><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">00-installer-config.yaml</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim sudo vim 00-installer-config.yaml </span><br></pre></td></tr></table></figure><ul><li>这里选择要修改的网卡的配置文件<h2 id="配置示例"><a href="#配置示例" class="headerlink" title="配置示例"></a>配置示例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># This is the network config written by &#x27;subiquity&#x27;</span><br><span class="line">network:</span><br><span class="line">  ethernets:</span><br><span class="line">    ens160:</span><br><span class="line">      dhcp4: false</span><br><span class="line">      addresses:</span><br><span class="line">        - 192.168.0.27/24</span><br><span class="line">      routes:</span><br><span class="line">        - to: default</span><br><span class="line">          via: 192.168.0.1</span><br><span class="line">      nameservers:</span><br><span class="line">        addresses: [114.114.114.114,8.8.8.8]</span><br><span class="line">  version: 2</span><br></pre></td></tr></table></figure><h2 id="重启网络"><a href="#重启网络" class="headerlink" title="重启网络"></a>重启网络</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netplan apply</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="查看网卡"><a href="#查看网卡" class="headerlink" title="查看网卡"></a>查看网卡</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">docker0: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255</span><br><span class="line">        ether 02:42:69:f0:8b:f5  txqueuelen 0  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">ens160: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.0.27  netmask 255.255.255.0  broadcast 192.168.0.255</span><br><span class="line">        inet6 fe80::20c:29ff:fea0:c420  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:a0:c4:20  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 10021  bytes 919655 (919.6 KB)</span><br><span class="line">        RX errors 0  dropped 5  overruns 0  frame 0</span><br><span class="line">        TX packets 7629  bytes 9885571 (9.8 MB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 427  bytes 502877 (502.8 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 427  bytes 502877 (502.8 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure><h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/netplan/</span><br><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">00-installer-config.yaml</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim 00-installer-config.yaml </span><br></pre></td></tr></table></figure><ul><li>这里选择要修改的网卡的配置文件<h2 id="配置示例"><a href="#配置示例" class="headerlink" title="配置示例"></a>配置示例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># This is the network config written by &#x27;subiquity&#x27;</span><br><span class="line">network:</span><br><span class="line">  ethernets:</span><br><span class="line">    ens160:</span><br><span class="line">      dhcp4: false</span><br><span class="line">      addresses:</span><br><span class="line">        - 192.168.0.27/24</span><br><span class="line">      routes:</span><br><span class="line">        - to: default</span><br><span class="line">          via: 192.168.0.1</span><br><span class="line">      nameservers:</span><br><span class="line">        addresses: [114.114.114.114,8.8.8.8]</span><br><span class="line">  version: 2</span><br></pre></td></tr></table></figure><h2 id="重启网络"><a href="#重启网络" class="headerlink" title="重启网络"></a>重启网络</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netplan apply</span><br></pre></td></tr></table></figure></li></ul>]]></content>
       
       
       <categories>
@@ -230,35 +257,6 @@
     
     
     <entry>
-      <title>nano配置cuda</title>
-      <link href="/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/"/>
-      <url>/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-10.2/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br><span class="line">export CUDA_HOME=$CUDA_HOME:/usr/local/cuda-10.2</span><br><span class="line">export ROS_PACKAGE_PATH=$&#123;ROS_PACKAGE_PATH&#125;:~/ros_car/</span><br><span class="line">export CUDA_HOME=/usr/local/cuda</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 随笔 </category>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> bash </tag>
-            
-            <tag> cuda </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>nano使用串口播报</title>
       <link href="/2022/08/14/nano%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E6%92%AD%E6%8A%A5/"/>
       <url>/2022/08/14/nano%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E6%92%AD%E6%8A%A5/</url>
@@ -303,6 +301,35 @@
         <tags>
             
             <tag> npm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nano配置cuda</title>
+      <link href="/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/"/>
+      <url>/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-10.2/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br><span class="line">export CUDA_HOME=$CUDA_HOME:/usr/local/cuda-10.2</span><br><span class="line">export ROS_PACKAGE_PATH=$&#123;ROS_PACKAGE_PATH&#125;:~/ros_car/</span><br><span class="line">export CUDA_HOME=/usr/local/cuda</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> bash </tag>
+            
+            <tag> cuda </tag>
             
         </tags>
       
