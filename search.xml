@@ -284,31 +284,6 @@
     
     
     <entry>
-      <title>npm换源</title>
-      <link href="/2022/08/14/npm%E6%8D%A2%E6%BA%90/"/>
-      <url>/2022/08/14/npm%E6%8D%A2%E6%BA%90/</url>
-      
-        <content type="html"><![CDATA[<h2 id="查看源"><a href="#查看源" class="headerlink" title="查看源"></a>查看源</h2><h3 id="查看依赖包源地址"><a href="#查看依赖包源地址" class="headerlink" title="查看依赖包源地址"></a>查看依赖包源地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure><blockquote><p>默认是指向官方源： <a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></p></blockquote><h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="淘宝源"><a href="#淘宝源" class="headerlink" title="淘宝源"></a>淘宝源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure><blockquote><p>配置信息文件在 ~/.npmrc</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> Nodejs </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> npm </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>nano配置cuda</title>
       <link href="/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/"/>
       <url>/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/</url>
@@ -330,6 +305,31 @@
             <tag> bash </tag>
             
             <tag> cuda </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>npm换源</title>
+      <link href="/2022/08/14/npm%E6%8D%A2%E6%BA%90/"/>
+      <url>/2022/08/14/npm%E6%8D%A2%E6%BA%90/</url>
+      
+        <content type="html"><![CDATA[<h2 id="查看源"><a href="#查看源" class="headerlink" title="查看源"></a>查看源</h2><h3 id="查看依赖包源地址"><a href="#查看依赖包源地址" class="headerlink" title="查看依赖包源地址"></a>查看依赖包源地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure><blockquote><p>默认是指向官方源： <a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></p></blockquote><h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="淘宝源"><a href="#淘宝源" class="headerlink" title="淘宝源"></a>淘宝源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure><blockquote><p>配置信息文件在 ~/.npmrc</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Nodejs </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> npm </tag>
             
         </tags>
       
