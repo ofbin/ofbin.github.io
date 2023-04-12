@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Mybatis In 条件传参三种方式</title>
+      <link href="/2023/04/12/Mybatis%E7%9A%84%E6%9D%A1%E4%BB%B6%E4%BC%A0%E5%8F%82%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+      <url>/2023/04/12/Mybatis%E7%9A%84%E6%9D%A1%E4%BB%B6%E4%BC%A0%E5%8F%82%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="第一种方法：in-条件为拼接好的字符串"><a href="#第一种方法：in-条件为拼接好的字符串" class="headerlink" title="第一种方法：in 条件为拼接好的字符串"></a>第一种方法：in 条件为拼接好的字符串</h2><p>直接传入拼接好的where in 条件<br>list转换为Sql条件字符串代码如下</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">sqlString</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; exhCollectForm.getSelectedCloId().size(); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        sqlString.append(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    sqlString.append(<span class="string">&quot;&#x27;&quot;</span>).append(exhCollectForm.getSelectedCloId().get(i)).append(<span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> sqlString.toString();</span><br></pre></td></tr></table></figure><p>如（’111’,’222’,’333’)则需要使用${idlist}传参，即绝对引用，而不能使用#<br>, 如果使用#传参会被mybatis当成字符串再添加一层’’引号，导致错误.<br>优点：简单方便，高效，缺点：不能防止SQL注入</p><h2 id="第二种方法：in-条件为List对象"><a href="#第二种方法：in-条件为List对象" class="headerlink" title="第二种方法：in 条件为List对象"></a>第二种方法：in 条件为List对象</h2><p>in条件直接传入List对象，让mybatis再去拼接生成in条件，这个很麻烦,但是可以防止SQL注入</p><h2 id="第三种方法：in-条件为String-数组"><a href="#第三种方法：in-条件为String-数组" class="headerlink" title="第三种方法：in 条件为String[] 数组"></a>第三种方法：in 条件为String[] 数组</h2><p>in条件直接传入[]数组对象，让mybatis再去拼接生成in条件，这个很麻烦,但是可以防止SQL注入</p><p>Service:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">deleteMenuByIdList</span><span class="params">(String idlist,<span class="type">int</span> delcount,<span class="type">int</span> lastsort)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">deleteMenuByIdList</span><span class="params">(List&lt;String&gt; idlist, <span class="type">int</span> delcount,<span class="type">int</span> lastsort)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">deleteMenuByIdList</span><span class="params">(String[] idlist, <span class="type">int</span> delcount,<span class="type">int</span> lastsort)</span>;</span><br></pre></td></tr></table></figure><p>Dao:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用这种写法方便，idlist直接拼接好，xml中用 in $&#123;idlist&#125;接受参数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">deleteMenuByIdList</span><span class="params">(<span class="meta">@Param(&quot;idlist&quot;)</span>String idlist, <span class="meta">@Param(&quot;delcount&quot;)</span><span class="type">int</span> delcount, <span class="meta">@Param(&quot;lastsort&quot;)</span><span class="type">int</span> lastsort)</span>;</span><br><span class="line"><span class="comment">//用这种写法直接传List对象，xml中再写循环拼接，麻烦</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">deleteMenuByIdList2</span><span class="params">(<span class="meta">@Param(&quot;idlist&quot;)</span>List&lt;String&gt; idlist, <span class="meta">@Param(&quot;delcount&quot;)</span><span class="type">int</span> delcount, <span class="meta">@Param(&quot;lastsort&quot;)</span><span class="type">int</span> lastsort)</span>;</span><br><span class="line"><span class="comment">//用这种写法直接传String[]数组，xml中再写循环拼接，麻烦</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">deleteMenuByIdList3</span><span class="params">(<span class="meta">@Param(&quot;idlist&quot;)</span>String[] idlist, <span class="meta">@Param(&quot;delcount&quot;)</span><span class="type">int</span> delcount, <span class="meta">@Param(&quot;lastsort&quot;)</span><span class="type">int</span> lastsort)</span>;</span><br></pre></td></tr></table></figure><p>mappper.xml</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">1，</span><br><span class="line">    <span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">&quot;deleteMenuByIdList&quot;</span> &gt;</span></span><br><span class="line">      delete from s_menu  where menu_id in $&#123;idlist&#125;;</span><br><span class="line">      update s_menu set sort=sort-#&#123;delcount&#125; where sort &gt;= #&#123;lastsort&#125; and menu_id not in $&#123;idlist&#125;;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">2，</span><br><span class="line">    <span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">&quot;deleteMenuByIdList2&quot;</span> &gt;</span></span><br><span class="line">        delete from s_menu where menu_id in</span><br><span class="line">        <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;idlist&quot;</span> <span class="attr">item</span>=<span class="string">&quot;menu_id&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span> <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span>&gt;</span></span><br><span class="line">            #&#123;menu_id&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">      ;update s_menu set sort=sort-#&#123;delcount&#125; where sort &gt;= #&#123;lastsort&#125; and menu_id not in</span><br><span class="line">       <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;idlist&quot;</span> <span class="attr">item</span>=<span class="string">&quot;menu_id&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span> <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span>&gt;</span></span><br><span class="line">           #&#123;menu_id&#125;</span><br><span class="line">       <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span>;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">3，</span><br><span class="line">    <span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">&quot;deleteMenuByIdList3&quot;</span> &gt;</span></span><br><span class="line">        delete from s_menu where menu_id in</span><br><span class="line">        <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;idlist&quot;</span> <span class="attr">item</span>=<span class="string">&quot;menu_id&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span> <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span>&gt;</span></span><br><span class="line">            #&#123;menu_id&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">        ;update s_menu set sort=sort-#&#123;delcount&#125; where sort &gt;= #&#123;lastsort&#125; and menu_id not in</span><br><span class="line">        <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;idlist&quot;</span> <span class="attr">item</span>=<span class="string">&quot;menu_id&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span> <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span>&gt;</span></span><br><span class="line">            #&#123;menu_id&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span>;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>原文链接：<a href="https://blog.csdn.net/wh445306/article/details/111056331">https://blog.csdn.net/wh445306/article/details/111056331</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javaEE </tag>
+            
+            <tag> Mybatis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue杂项</title>
       <link href="/2023/03/12/vue/"/>
       <url>/2023/03/12/vue/</url>
@@ -284,6 +311,31 @@
     
     
     <entry>
+      <title>npm换源</title>
+      <link href="/2022/08/14/npm%E6%8D%A2%E6%BA%90/"/>
+      <url>/2022/08/14/npm%E6%8D%A2%E6%BA%90/</url>
+      
+        <content type="html"><![CDATA[<h2 id="查看源"><a href="#查看源" class="headerlink" title="查看源"></a>查看源</h2><h3 id="查看依赖包源地址"><a href="#查看依赖包源地址" class="headerlink" title="查看依赖包源地址"></a>查看依赖包源地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure><blockquote><p>默认是指向官方源： <a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></p></blockquote><h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="淘宝源"><a href="#淘宝源" class="headerlink" title="淘宝源"></a>淘宝源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure><blockquote><p>配置信息文件在 ~/.npmrc</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Nodejs </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> npm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nano配置cuda</title>
       <link href="/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/"/>
       <url>/2022/08/14/nano%E9%85%8D%E7%BD%AEcuda/</url>
@@ -305,31 +357,6 @@
             <tag> bash </tag>
             
             <tag> cuda </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>npm换源</title>
-      <link href="/2022/08/14/npm%E6%8D%A2%E6%BA%90/"/>
-      <url>/2022/08/14/npm%E6%8D%A2%E6%BA%90/</url>
-      
-        <content type="html"><![CDATA[<h2 id="查看源"><a href="#查看源" class="headerlink" title="查看源"></a>查看源</h2><h3 id="查看依赖包源地址"><a href="#查看依赖包源地址" class="headerlink" title="查看依赖包源地址"></a>查看依赖包源地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure><blockquote><p>默认是指向官方源： <a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></p></blockquote><h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="淘宝源"><a href="#淘宝源" class="headerlink" title="淘宝源"></a>淘宝源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure><blockquote><p>配置信息文件在 ~/.npmrc</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> Nodejs </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> npm </tag>
             
         </tags>
       
