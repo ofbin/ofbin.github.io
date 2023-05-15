@@ -4,6 +4,89 @@
   
     
     <entry>
+      <title>Spring AOP</title>
+      <link href="/2023/05/05/AOP/"/>
+      <url>/2023/05/05/AOP/</url>
+      
+        <content type="html"><![CDATA[<h2 id="AOP切入点表达式"><a href="#AOP切入点表达式" class="headerlink" title="AOP切入点表达式"></a>AOP切入点表达式</h2><p>切入点表达式标准格式:动作关键字( 访问修饰符 返回值 包名类/接名方法名(参数)异常名)</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">execution (<span class="keyword">public</span> User com,itheima.service,UserService.findById (<span class="type">int</span>)</span><br></pre></td></tr></table></figure><ul><li>动作关键字: 描述切入点的行为动作，例如execution表示执行到指定切入点</li><li>访问修饰符 : public，private等，可以省略</li><li>返回值</li><li>包名</li><li>类/接口名</li><li>方法名</li><li>参数</li><li>异常名: 方法定义中抛出指定异常，可以省略</li></ul><h2 id="AOP通知类型"><a href="#AOP通知类型" class="headerlink" title="AOP通知类型"></a>AOP通知类型</h2><h3 id="前置通知"><a href="#前置通知" class="headerlink" title="前置通知"></a>前置通知</h3><ul><li>名称 : @After</li><li>类型:方法注解.</li><li>位置: 通知方法定义上方</li><li>作用:设置当前通知方法与切入点之间的绑定关系，当前通知方法在原始切入点方后运行</li><li>范例 :<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@After(&quot;pt()&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">after</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;after advice ...&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>相关属性 : value(默认 ) : 切入点方法名，格式为类名方法名0<h3 id="环绕通知"><a href="#环绕通知" class="headerlink" title="环绕通知"></a>环绕通知</h3></li><li>名称 :@Around (重点，常用)</li><li>类型方法注解</li><li>通知方法定义上方位置</li><li>作用:设置当前通知方法与切入点之间的绑定关系，当前通知方法在原始切入点方法前后运行</li><li>范例 :<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Around(&quot;pt()&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Object <span class="title function_">around</span><span class="params">(ProceedingJoinPoint pjp)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;around before advice ...&quot;</span>);</span><br><span class="line">    <span class="type">Object</span> <span class="variable">ret</span> <span class="operator">=</span> pjp.proceed();</span><br><span class="line">    System.&amp;ut.println(<span class="string">&quot;around after advice ...&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javaEE </tag>
+            
+            <tag> spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分页查询</title>
+      <link href="/2023/05/05/%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/"/>
+      <url>/2023/05/05/%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/</url>
+      
+        <content type="html"><![CDATA[<p>前端传递参数</p><ul><li>当前页码数</li><li>每页显示的条目数</li></ul><p>数据库SQL<br>LIMIT</p><ul><li>参数1：开始的索引</li><li>参数2：查询的条目数<blockquote><p>(当前页码-1)*每页显示的条目数=开始的索引<br>每页显示的条目数=查询的条目数</p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javaEE </tag>
+            
+            <tag> mybatis </tag>
+            
+            <tag> mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spring部分注解</title>
+      <link href="/2023/05/04/Spring%E6%B3%A8%E8%A7%A3%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/05/04/Spring%E6%B3%A8%E8%A7%A3%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="bean作用范围"><a href="#bean作用范围" class="headerlink" title="bean作用范围"></a>bean作用范围</h2><p>@Scope<br>单例或非单例<br>singleton  单例<br>prototype 非单例<br>例如：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Scope(&quot;singleton&quot;)</span></span><br><span class="line"><span class="meta">@Scope(&quot;prototype&quot;)</span></span><br></pre></td></tr></table></figure><h2 id="定义bean"><a href="#定义bean" class="headerlink" title="定义bean"></a>定义bean</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@Repository</span></span><br></pre></td></tr></table></figure><h2 id="控制bean生命周期"><a href="#控制bean生命周期" class="headerlink" title="控制bean生命周期"></a>控制bean生命周期</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造方法后运行</span></span><br><span class="line"><span class="meta">@PostConstruct</span></span><br><span class="line"><span class="comment">// 销毁前运行</span></span><br><span class="line"><span class="meta">@PreDestroy</span></span><br></pre></td></tr></table></figure><h2 id="引用类型bean自动装配——指定装配"><a href="#引用类型bean自动装配——指定装配" class="headerlink" title="引用类型bean自动装配——指定装配"></a>引用类型bean自动装配——指定装配</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Qualifier(&quot;名称&quot;)</span><span class="comment">//无法单独使用</span></span><br></pre></td></tr></table></figure><h2 id="简单类型的注入"><a href="#简单类型的注入" class="headerlink" title="简单类型的注入"></a>简单类型的注入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;=$&#123;&#125;&quot;)</span></span><br></pre></td></tr></table></figure><h2 id="加载properties文件"><a href="#加载properties文件" class="headerlink" title="加载properties文件"></a>加载properties文件</h2><p>使用@PropertySource注解加载properties文件</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan(&quot;com.itheima&quot;)</span></span><br><span class="line"><span class="meta">@PropertySource(&quot;classpath:jdbc.properties&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SpringConfig</span> &#123;&#125;</span><br></pre></td></tr></table></figure><blockquote><p>注意:路径仅支持单一文件配置，多文件请使用数组格式配置，不允许使用通配符<br>加载配置文件.properties</p></blockquote><h2 id="XML配置和注解配置的对比"><a href="#XML配置和注解配置的对比" class="headerlink" title="XML配置和注解配置的对比"></a>XML配置和注解配置的对比</h2><table><thead><tr><th align="left">功能</th><th align="left">XML配置</th><th align="left">注解</th></tr></thead><tbody><tr><td align="left">定义bean</td><td align="left">bean标签 <br> - id属性<br> - class属性</td><td align="left">@Component<br>-@Controller<br>-@Service<br>-@Repository<br>@ComponentScan</td></tr><tr><td align="left">设置依赖注入</td><td align="left">setter注入(set方法)<br>-引用/简单<br>构造器注入(构造方法)<br>-引用/简单<br>自动装配</td><td align="left">@Autowired<br>-@Oualifier<br>@Value</td></tr><tr><td align="left">配置第三方bean</td><td align="left">bean标签<br>静态工厂实例工厂、FactoryBean</td><td align="left">@Bean</td></tr><tr><td align="left">作用范围</td><td align="left">-scope属性</td><td align="left">@Scope</td></tr><tr><td align="left">生命周期</td><td align="left">标准接口<br>-init-method<br>-destroy-metho</td><td align="left">@PostConstructor<br>@PreDestroy</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javaEE </tag>
+            
+            <tag> spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PubSubClient的注意事项</title>
       <link href="/2023/04/17/PubSubClient%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
       <url>/2023/04/17/PubSubClient%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
@@ -49,7 +132,7 @@
             
             <tag> javaEE </tag>
             
-            <tag> Mybatis </tag>
+            <tag> mybatis </tag>
             
         </tags>
       
@@ -62,7 +145,7 @@
       <link href="/2023/03/12/vue/"/>
       <url>/2023/03/12/vue/</url>
       
-        <content type="html"><![CDATA[<h2 id="axios与Vue整合"><a href="#axios与Vue整合" class="headerlink" title="axios与Vue整合"></a>axios与Vue整合</h2><p>在实际项目开发中，几乎每个组件中都会用到 axios 发起数据请求。此时会遇<br>到如下两个问题:<br>每个组件中都需要导入axios<br>每次发请求都需要填写完整的请求路径可以通过全局配置的方式解决上述问题:</p><p>配置请求根路径</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.baseURL = &#x27;http://api.com &#x27;</span><br></pre></td></tr></table></figure><p>//将axios作为全局的自定义属性，每个组件可以在内部直接访问(vue3)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.config.g1oba1Properties.$http = axios</span><br></pre></td></tr></table></figure><p>将axios作为全局的自定义属性，每个组件可以在内部直接访问(vue2)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue.prototype.$http = axios</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="axios与Vue整合"><a href="#axios与Vue整合" class="headerlink" title="axios与Vue整合"></a>axios与Vue整合</h2><p>在实际项目开发中，几乎每个组件中都会用到 axios 发起数据请求。此时会遇<br>到如下两个问题:<br>每个组件中都需要导入axios<br>每次发请求都需要填写完整的请求路径可以通过全局配置的方式解决上述问题:</p><p>配置请求根路径</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.baseURL = &#x27;http://api.com &#x27;</span><br></pre></td></tr></table></figure><p>//将axios作为全局的自定义属性，每个组件可以在内部直接访问(vue3)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.config.g1oba1Properties.$http = axios</span><br></pre></td></tr></table></figure><p>将axios作为全局的自定义属性，每个组件可以在内部直接访问(vue2)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue.prototype.$http = axios</span><br></pre></td></tr></table></figure><p>常用指令</p><table><thead><tr><th align="left">指令</th><th align="left">作用</th></tr></thead><tbody><tr><td align="left">v-bind</td><td align="left">为HTML标签绑定属性值，如设置href，CSS样式等</td></tr><tr><td align="left">v-model</td><td align="left">在表单元素上创建双向数据绑定</td></tr><tr><td align="left">v-on</td><td align="left">为HTML标签绑定事件</td></tr><tr><td align="left">v-if</td><td align="left">条件性的渲染某元素，判定为true时渲染,否则不渲染</td></tr><tr><td align="left">v-else</td><td align="left">条件性的渲染某元素，判定为true时渲染,否则不渲染</td></tr><tr><td align="left">v-else-if</td><td align="left">条件性的渲染某元素，判定为true时渲染,否则不渲染</td></tr><tr><td align="left">v-show</td><td align="left">根据条件展示某元素，区别在于切换的是display属性的值</td></tr><tr><td align="left">v-for</td><td align="left">列表渲染，遍历容器的元素或者对象的属性</td></tr></tbody></table>]]></content>
       
       
       <categories>
@@ -300,36 +383,9 @@
       
         <tags>
             
-            <tag> python </tag>
-            
             <tag> ubuntu </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>nano使用串口播报</title>
-      <link href="/2022/08/14/nano%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E6%92%AD%E6%8A%A5/"/>
-      <url>/2022/08/14/nano%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E6%92%AD%E6%8A%A5/</url>
-      
-        <content type="html"><![CDATA[<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>Nano端：</p><h3 id="要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库"><a href="#要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库" class="headerlink" title="要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库"></a>要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-serial</span><br></pre></td></tr></table></figure><h3 id="与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）"><a href="#与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）" class="headerlink" title="与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）"></a>与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/JetsonHacksNano/UARTDemo</span><br></pre></td></tr></table></figure><h3 id="打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）"><a href="#打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）" class="headerlink" title="打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）"></a>打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> 777 /dev/ttyTHS1</span><br></pre></td></tr></table></figure><h3 id="进入下载好的UARTDemo文件夹，终端运行程序"><a href="#进入下载好的UARTDemo文件夹，终端运行程序" class="headerlink" title="进入下载好的UARTDemo文件夹，终端运行程序"></a>进入下载好的UARTDemo文件夹，终端运行程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> UARTDemo</span><br><span class="line">sudo python3 uart_example.py</span><br></pre></td></tr></table></figure><h2 id="硬件接线-对应"><a href="#硬件接线-对应" class="headerlink" title="硬件接线(对应)"></a>硬件接线(对应)</h2><table><thead><tr><th>Nano</th><th>播报模块</th></tr></thead><tbody><tr><td>引脚8(TXD)</td><td>PB6(RXD)</td></tr><tr><td>引脚10(RXD)</td><td>PB5(TXD)</td></tr><tr><td>引脚6(GND)</td><td>GND</td></tr><tr><td>引脚2(5V)</td><td>5V</td></tr></tbody></table>]]></content>
-      
-      
-      <categories>
-          
-          <category> 随笔 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
             <tag> python </tag>
-            
-            <tag> uart </tag>
             
         </tags>
       
@@ -384,6 +440,33 @@
         <tags>
             
             <tag> npm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nano使用串口播报</title>
+      <link href="/2022/08/14/nano%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E6%92%AD%E6%8A%A5/"/>
+      <url>/2022/08/14/nano%E4%BD%BF%E7%94%A8%E4%B8%B2%E5%8F%A3%E6%92%AD%E6%8A%A5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>Nano端：</p><h3 id="要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库"><a href="#要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库" class="headerlink" title="要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库"></a>要使用Nano上的串口，用Python控制，先安装Python3版本的py-serial库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-serial</span><br></pre></td></tr></table></figure><h3 id="与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）"><a href="#与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）" class="headerlink" title="与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）"></a>与PC通信的例程可在GitHub上下载（或者直接打开网址手动下载）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/JetsonHacksNano/UARTDemo</span><br></pre></td></tr></table></figure><h3 id="打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）"><a href="#打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）" class="headerlink" title="打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）"></a>打开串口权限（每次关机后Nano都关闭串口，所以每次使用时都要打开一次）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> 777 /dev/ttyTHS1</span><br></pre></td></tr></table></figure><h3 id="进入下载好的UARTDemo文件夹，终端运行程序"><a href="#进入下载好的UARTDemo文件夹，终端运行程序" class="headerlink" title="进入下载好的UARTDemo文件夹，终端运行程序"></a>进入下载好的UARTDemo文件夹，终端运行程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> UARTDemo</span><br><span class="line">sudo python3 uart_example.py</span><br></pre></td></tr></table></figure><h2 id="硬件接线-对应"><a href="#硬件接线-对应" class="headerlink" title="硬件接线(对应)"></a>硬件接线(对应)</h2><table><thead><tr><th>Nano</th><th>播报模块</th></tr></thead><tbody><tr><td>引脚8(TXD)</td><td>PB6(RXD)</td></tr><tr><td>引脚10(RXD)</td><td>PB5(TXD)</td></tr><tr><td>引脚6(GND)</td><td>GND</td></tr><tr><td>引脚2(5V)</td><td>5V</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> uart </tag>
             
         </tags>
       
