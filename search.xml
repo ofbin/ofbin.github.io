@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>在Ubuntu22.04下配置Java环境</title>
+      <link href="/2023/05/18/%E5%9C%A8Ubuntu22.04%E4%B8%8B%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83/"/>
+      <url>/2023/05/18/%E5%9C%A8Ubuntu22.04%E4%B8%8B%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83/</url>
+      
+        <content type="html"><![CDATA[<h2 id="下载jdk"><a href="#下载jdk" class="headerlink" title="下载jdk"></a>下载jdk</h2><p><a href="https://www.oracle.com/java/technologies/downloads/#java17">https://www.oracle.com/java/technologies/downloads/#java17</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux systemctl</title>
+      <link href="/2023/05/18/linux%20systemctl/"/>
+      <url>/2023/05/18/linux%20systemctl/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">//移除服务</span><br><span class="line">systemctl reset-failed mysqld</span><br><span class="line"></span><br><span class="line">//查看服务状态,可以发现不能使用，移除成功了</span><br><span class="line">systemctl status mysqld</span><br><span class="line"></span><br><span class="line">//查找所有或者某个服务</span><br><span class="line">systemctl list-units --<span class="built_in">type</span>=service | grep network</span><br><span class="line"></span><br><span class="line">//列出所有可用单元</span><br><span class="line">systemctl list-unit-files</span><br><span class="line"></span><br><span class="line">//列出所有运行中单元</span><br><span class="line">systemctl list-units</span><br><span class="line"></span><br><span class="line">//列出所有失败单元</span><br><span class="line">systemctl --failed</span><br><span class="line"></span><br><span class="line">//使用systemctl命令杀死服务</span><br><span class="line">systemctl <span class="built_in">kill</span> mysqld</span><br><span class="line"></span><br><span class="line">//列出所有系统挂载点</span><br><span class="line">systemctl list-unit-files --<span class="built_in">type</span>=mount</span><br><span class="line"></span><br><span class="line">//挂载、卸载、重新挂载、重载系统挂载点并检查系统中挂载点状态</span><br><span class="line">systemctl start tmp.mount</span><br><span class="line">systemctl stop tmp.mount</span><br><span class="line">systemctl restart tmp.mount</span><br><span class="line">systemctl reload tmp.mount</span><br><span class="line">systemctl status tmp.mount</span><br><span class="line"></span><br><span class="line">//启动服务</span><br><span class="line">systemctl start mysqld</span><br><span class="line"></span><br><span class="line">//停止服务</span><br><span class="line">systemctl stop mysqld</span><br><span class="line"></span><br><span class="line">//开机自启</span><br><span class="line">systemctl <span class="built_in">enable</span> mysqld</span><br><span class="line"></span><br><span class="line">//开机关闭</span><br><span class="line">systemctl <span class="built_in">disable</span> mysqld</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> systemctl </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java牛客刷题笔记</title>
       <link href="/2023/05/17/Java%E5%9F%BA%E7%A1%80/"/>
       <url>/2023/05/17/Java%E5%9F%BA%E7%A1%80/</url>
@@ -475,6 +525,31 @@
     
     
     <entry>
+      <title>npm换源</title>
+      <link href="/2022/08/14/npm%E6%8D%A2%E6%BA%90/"/>
+      <url>/2022/08/14/npm%E6%8D%A2%E6%BA%90/</url>
+      
+        <content type="html"><![CDATA[<h2 id="查看源"><a href="#查看源" class="headerlink" title="查看源"></a>查看源</h2><h3 id="查看依赖包源地址"><a href="#查看依赖包源地址" class="headerlink" title="查看依赖包源地址"></a>查看依赖包源地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure><blockquote><p>默认是指向官方源： <a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></p></blockquote><h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="淘宝源"><a href="#淘宝源" class="headerlink" title="淘宝源"></a>淘宝源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure><blockquote><p>配置信息文件在 ~/.npmrc</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Nodejs </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> npm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>numpy随笔</title>
       <link href="/2022/08/14/numpy/"/>
       <url>/2022/08/14/numpy/</url>
@@ -494,31 +569,6 @@
             <tag> python </tag>
             
             <tag> numpy </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>npm换源</title>
-      <link href="/2022/08/14/npm%E6%8D%A2%E6%BA%90/"/>
-      <url>/2022/08/14/npm%E6%8D%A2%E6%BA%90/</url>
-      
-        <content type="html"><![CDATA[<h2 id="查看源"><a href="#查看源" class="headerlink" title="查看源"></a>查看源</h2><h3 id="查看依赖包源地址"><a href="#查看依赖包源地址" class="headerlink" title="查看依赖包源地址"></a>查看依赖包源地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure><blockquote><p>默认是指向官方源： <a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></p></blockquote><h2 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h2><h3 id="淘宝源"><a href="#淘宝源" class="headerlink" title="淘宝源"></a>淘宝源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure><blockquote><p>配置信息文件在 ~/.npmrc</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> Nodejs </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> npm </tag>
             
         </tags>
       
